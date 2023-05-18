@@ -1,0 +1,18 @@
+{
+    "name": "razlagutt/bagels",
+    "description": "Bagels, a deductive logic game.",
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Razlagutt",
+            "email": "razlagutt@yandex.ru"
+        }
+    ],
+    "require": {
+        "twbs/bootstrap": "5.0.2"
+    }
+}
