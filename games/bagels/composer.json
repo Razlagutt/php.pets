@@ -11,8 +11,5 @@
             "name": "Razlagutt",
             "email": "razlagutt@yandex.ru"
         }
-    ],
-    "require": {
-        "twbs/bootstrap": "5.0.2"
-    }
+    ]
 }
