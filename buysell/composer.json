@@ -1,0 +1,15 @@
+{
+    "name": "razlagutt/buysell",
+    "autoload": {
+        "psr-4": {
+            "app\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Razlagutt",
+            "email": "razlagutt@yandex.ru"
+        }
+    ],
+    "require": {}
+}

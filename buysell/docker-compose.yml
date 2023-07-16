@@ -1,0 +1,85 @@
+version: '3'
+
+services:
+  nginx:
+    container_name: nginx_container
+    build: ./docker/nginx
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/conf.d/:/etc/nginx/conf.d/
+    ports:
+      - "8876:80"
+    depends_on:
+      - php-fpm
+  
+  php-fpm:
+    container_name: php-fpm_container
+    build: ./docker/phpfpm
+    volumes:
+      - .:/var/www/html
+  
+  # php-cli:
+  #   container_name: php-cli_container
+  #   build: ./docker/phpcli
+  #   volumes:
+  #     - .:/var/www/html
+  #   user: '1000:1000'
+  #   ports:
+  #     - 8000:8000
+  #   command: php -S 0.0.0.0:8000 -t /var/www/html
+
+  # mysql:
+  #   container_name: mysql_container
+  #   build: ./docker/mysql
+  #   restart: always
+  #   volumes:
+  #     - ./mysqldb:/var/lib/mysql
+  #   ports:
+  #     - "3306:3306"
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: 123456
+  
+  # phpmyadmin:
+  #   container_name: myadmin_container
+  #   build: ./docker/phpmyadmin
+  #   restart: always
+  #   ports:
+  #     - 8081:80
+  #   environment:
+  #     - PMA_ARBITRARY=1
+  #     - PMA_HOST:mysql
+  #     - MYSQL_USERNAME:root
+  #     - MYSQL_ROOT_PASSWORD:123456
+  #   depends_on:
+  #   - mysql
+  
+  # pgsql:
+  #   container_name: pgsql_container
+  #   build: ./docker/pgsql
+  #   restart: always
+  #   volumes:
+  #     - ./pgsqldb/:/var/lib/postgresql/data
+  #   ports:
+  #     - '5432:5432'
+  #   environment:
+  #     - POSTGRES_PASSWORD=root
+  #     - POSTGRES_USER=admin
+
+  # pgadmin:
+  #   container_name: pgadmin_container
+  #   build: ./docker/pgadmin
+  #   restart: always
+  #   ports:
+  #     - 5050:80
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: admin@pgsql.com
+  #     PGADMIN_DEFAULT_PASSWORD: root
+  #   depends_on:
+  #     - pgsql
+
+  # adminer:
+  #   container_name: adminer_container
+  #   build: ./docker/adminer
+  #   restart: always
+  #   ports:
+  #     - 8080:8080
